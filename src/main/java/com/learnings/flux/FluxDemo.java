@@ -9,7 +9,8 @@ public class FluxDemo {
     public static void main(String[] args) {
 //        justDemo();
 //        fromStream();
-        fromRange();
+//        fromRange();
+        takeOperators();
     }
 
     private static void justDemo() {
@@ -46,6 +47,14 @@ public class FluxDemo {
     static void fromRange() {
         Flux.range(3,5)
                 .log()
+                .subscribe(Util.subscriber());
+    }
+
+    static void takeOperators() {
+        Flux.range(1,10)
+                .log("take")
+                .take(3)
+                .log("sub")
                 .subscribe(Util.subscriber());
     }
 }
