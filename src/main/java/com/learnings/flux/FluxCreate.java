@@ -5,6 +5,7 @@ import reactor.core.publisher.Flux;
 
 public class FluxCreate {
     public static void main(String[] args) {
+        // flux is designed where we have only single subscriber
         conditionalComplete();
     }
 
