@@ -12,7 +12,14 @@ public class ErrorHandling {
     private static final Logger log = LoggerFactory.getLogger(ErrorHandling.class);
 
     public static void main(String[] args) {
-        onErrorComplete();
+        onErrorReturnDemo();
+    }
+
+    private static void onErrorReturnDemo(){
+        Flux.range(1, 10)
+                .map(i -> i / (2 - i))
+                .onErrorReturn(3)
+                .subscribe(Util.subscriber());
     }
 
     // skip the error and continue
