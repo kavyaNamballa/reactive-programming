@@ -11,6 +11,7 @@ public class PublishRefCount {
                     }
                     fluxSink.complete();
                 })
+                .log()
                 .publish()
                 .refCount(2);
         flux.subscribe(System.out::println);
